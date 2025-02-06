@@ -43,5 +43,17 @@ public class UnitTest1
         File.Delete(testAsciiFile);
     }
 
+     [Fact]
+    public void ReadBinaryFile_ReturnCorrectContent()
+    {
+        byte[] content = { 0x10, 0x20, 0x30 };
+        File.WriteAllBytes(testBinaryFile, content);
+
+        byte[] result = Supplement_P1_3.ReadBinaryFile(testBinaryFile);
+        Assert.Equal(content, result);
+
+        File.Delete(testBinaryFile);
+    }
+
 
 }
