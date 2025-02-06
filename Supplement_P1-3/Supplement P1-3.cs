@@ -13,6 +13,12 @@ public class Supplement_P1_3
            File.WriteAllText(filePath, content);
         }
 
+        /// <summary>
+        /// Creates a binary file that takes take two parameters.
+        /// </summary>
+        /// <param name="filePath">he path where the file will be created.</param>
+        /// <param name="content"> The byte array to write to the file.</param>
+
         public static void CreateBinaryFile(string filePath, byte[] content)
         {
             File.WriteAllBytes(filePath, content);
