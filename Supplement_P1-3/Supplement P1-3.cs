@@ -5,7 +5,7 @@ public class Supplement_P1_3
 
        public static void CreateAsciiFile(string filePath, string content)
         {
-            throw new NotImplementedException();
+           File.WriteAllText(filePath, content);
         }
 
         public static void CreateBinaryFile(string filePath, byte[] content)
