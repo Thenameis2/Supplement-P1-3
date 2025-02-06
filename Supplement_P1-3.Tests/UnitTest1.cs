@@ -4,7 +4,8 @@ public class UnitTest1
 {
 
     private readonly string testAsciiFile = "test_ascii.txt";
-    
+    private readonly string testBinaryFile = "test_binary.bin";
+
     [Fact]
     public void CreateAsciiFile()
     {
@@ -17,4 +18,18 @@ public class UnitTest1
         File.Delete(testAsciiFile);
 
     }
+
+      [Fact]
+    public void CreateBinaryFile_FileWithCorrectContent()
+    {
+        byte[] content = { 0x42, 0x43, 0x44 };
+        Supplement_P1_3.CreateBinaryFile(testBinaryFile, content);
+
+        Assert.True(File.Exists(testBinaryFile));
+        Assert.Equal(content, File.ReadAllBytes(testBinaryFile));
+
+        File.Delete(testBinaryFile);
+    }
+
+
 }
