@@ -35,6 +35,12 @@ public class Supplement_P1_3
 
         }
 
+        /// <summary>
+        /// Reads the contents of a binary file and returns it as a byte array.
+        /// </summary>
+        /// <param name="filePath"> The path of the file to read. </param>
+        /// <returns> The file's contents as a byte array.</returns>
+
         public static byte[] ReadBinaryFile(string filePath)
         {
             return File.ReadAllBytes(filePath);
