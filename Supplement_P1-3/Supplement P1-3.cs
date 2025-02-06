@@ -37,7 +37,7 @@ public class Supplement_P1_3
 
         public static byte[] ReadBinaryFile(string filePath)
         {
-            throw new NotImplementedException();
+            return File.ReadAllBytes(filePath);
         }
 
         public static void CompareFileSizes()
