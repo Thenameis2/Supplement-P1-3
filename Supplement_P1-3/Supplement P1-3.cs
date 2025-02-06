@@ -26,7 +26,8 @@ public class Supplement_P1_3
 
         public static string ReadAsciiFile(string filePath)
         {
-            throw new NotImplementedException();
+            return File.ReadAllText(filePath);
+
         }
 
         public static byte[] ReadBinaryFile(string filePath)
