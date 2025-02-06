@@ -1,6 +1,6 @@
 ﻿namespace Supplement_P1_3;
 
-public class Supplement P1-3
+public class Supplement_P1_3
 {
 
        public static void CreateAsciiFile(string filePath, string content)
