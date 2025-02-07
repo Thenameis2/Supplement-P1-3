@@ -47,6 +47,9 @@ public class Supplement_P1_3
             return File.ReadAllBytes(filePath);
         }
 
+/// <summary>
+/// Function to compare file sizes of binary and ascii files.
+/// </summary>
         public static void CompareFileSizes()
         {
             int[] sizes = { 10, 100, 1000, 10000, 1000000 };
