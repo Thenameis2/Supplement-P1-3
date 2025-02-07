@@ -1,4 +1,5 @@
 ﻿namespace Supplement_P1_3;
+using System.Text;
 
 public class Supplement_P1_3
 {
@@ -48,7 +49,40 @@ public class Supplement_P1_3
 
         public static void CompareFileSizes()
         {
-            throw new NotImplementedException();
-        }
+            int[] sizes = { 10, 100, 1000, 10000, 1000000 };
+            Random rand = new Random();
+            string charsForString = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; 
 
+            foreach (int size in sizes)
+            {
+                
+                StringBuilder randomString = new StringBuilder();
+                for (int i = 0; i < size; i++)
+                {
+                    randomString.Append(charsForString[rand.Next(charsForString.Length)]);
+                }
+                string finalString = randomString.ToString();
+
+            
+                string asciiPath = $"ascii_{size}.txt";
+                string binaryPath = $"binary_{size}.bin";
+
+            
+                File.WriteAllText(asciiPath, finalString, Encoding.ASCII);
+
+                
+                using (FileStream fs = new FileStream(binaryPath, FileMode.Create))
+                using (GZipStream gzip = new GZipStream(fs, CompressionLevel.Optimal))
+                {
+                    byte[] binaryData = Encoding.UTF8.GetBytes(finalString);
+                    gzip.Write(binaryData, 0, binaryData.Length);
+                }
+
+                
+                long asciiSize = new FileInfo(asciiPath).Length;
+                long binarySize = new FileInfo(binaryPath).Length;
+
+                Console.WriteLine($"Size {size}: ASCII = {asciiSize} bytes, Binary = {binarySize} bytes");
+            }
+        }
 }
